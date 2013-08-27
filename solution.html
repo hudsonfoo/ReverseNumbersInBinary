@@ -1,0 +1,21 @@
+<input type='text' id='r'>
+<script type='text/javascript'>
+    function getBase(num, base) {
+        var result = '';
+        for (var i = (Math.floor(Math.log(num)/Math.LN2)); i >= 0; i--) {
+            pow = Math.pow(base, i);
+            if (pow <= num) {
+                result += '1';
+                num -= pow;
+            } else {
+                result += '0';
+            }
+        }
+
+        return result;
+    }
+
+    document.getElementById('r').onkeyup = function() {
+        console.log(getBase(this.value, 2));
+    };
+</script>
